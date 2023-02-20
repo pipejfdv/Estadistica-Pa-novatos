@@ -46,5 +46,6 @@ plt.plot(listado)
 plt.show()
 organizacion()
 media_Mediana()
-
+plt.plot(listado)
+plt.show()
 ##print(numero)
