@@ -1,4 +1,8 @@
 import matplotlib.pyplot as plt
+from estadistica_operaciones import *
+
+import numpy as np
+
 def organizacion():
     for recorrido in range(1, len(listado)):
         for posicion in range(len(listado) - recorrido):
@@ -6,46 +10,28 @@ def organizacion():
                 temp = listado[posicion]
                 listado[posicion]=listado[posicion+1]
                 listado[posicion+1]=temp
-                print('organizada\n',listado)
-                print('longitud: ',len(listado))
-                
-                
-def media_Mediana():
-    suma = 0
-    for i in listado:
-        suma = suma + i
-    media = suma/cantidad
-    print('la media: ', media)
-    ## proceso mediana
-    longitud = len(listado)
-
-    if cantidad % 2 == 0: ## cuando es par 
-        print('Cuando es una valor par: ')
-        posicio_lisa = cantidad/2
-        print('Esta es la media: ', posicio_lisa)
-        at=float(input('Ingresar valor de la posición 1: '))
-        bt=float(input('Ingresar valor de la posición 2: '))
-        resultado=(at+bt)/2
-        print('Tu mediana es: ', resultado)
-    else:## cuando es impar
-        print('logitud: ',longitud)
-        mediana = (cantidad + 1) / 2
-        print('Impar \nla mediana esta en esta posicion: ', mediana)
-        
-        
-        
-        
        
-cantidad = int(input("cantidad de datos: "))
+n = int(input("número de datos: "))
 listado = []
-for i in range(cantidad):
+tipo_Dato=str(input('¿Que tipo de dato ingresaras? coloca el nombre ejem: centigrados, kilometros, psi:\n'))
+print()
+for i in range(n):
     numero= float(input("ingresa los valores: "))
     listado.append(numero)
+
+#mostrar datos
 print(listado)
-plt.plot(listado)
+##mostrar datos en grafica desorganizada
+
+plt.plot(listado, label=tipo_Dato, color='black')
+plt.legend()
+plt.ylabel(tipo_Dato)
+plt.xlabel('Cantidad de muestras')
+plt.title('tus graficos')
+plt.grid(b=True)
 plt.show()
 organizacion()
-media_Mediana()
-plt.plot(listado)
-plt.show()
-##print(numero)
+media_Mediana(listado, n)
+
+
+Varianza(listado, n)
