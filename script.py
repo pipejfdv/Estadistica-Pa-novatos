@@ -22,6 +22,13 @@ for i in range(n):
 #mostrar datos
 print(listado)
 ##mostrar datos en grafica desorganizada
+print()
+organizacion()
+print(listado)
+print()
+
+media_Mediana(listado, n)
+Varianza(listado, n)
 
 plt.plot(listado, label=tipo_Dato, color='black')
 plt.legend()
@@ -30,8 +37,3 @@ plt.xlabel('Cantidad de muestras')
 plt.title('tus graficos')
 plt.grid(b=True)
 plt.show()
-organizacion()
-media_Mediana(listado, n)
-
-
-Varianza(listado, n)
